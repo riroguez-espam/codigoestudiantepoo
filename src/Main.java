@@ -74,7 +74,7 @@ public class Main {
         System.out.println();
 
         System.out.println("  [PRUEBA 2] Intento de violar invariante de salario ($200.00 < SBU $460.00):");
-        emp1.setSueldo(200.00);
+        emp1.setSueldo(200);
         System.out.println();
 
         System.out.println("  [PRUEBA 3] Asignacion de valores legitimos (29 anios, $950.00):");

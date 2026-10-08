@@ -31,6 +31,8 @@ public class Empleado {
     private double sueldo;
     private String cargo;
 
+    
+
     /**
      * Constructor con inicializacion protegida.
      * Utiliza los setters para aplicar las invariantes de validacion desde la creacion.
@@ -105,20 +107,24 @@ public class Empleado {
      * @return true si la edad es valida y fue asignada; false en caso contrario
      */
     public boolean setEdad(int nuevaEdad) {
-        // ====================================================================
-        // ESCRIBE TU CODIGO AQUI:
-        // PISTA: Evalua con un if (nuevaEdad >= 18 && nuevaEdad <= 70)
-        // ====================================================================
-
-        // [PLANTILLA TEMPORAL]: Reemplazar con tu implementacion completa
-        this.edad = nuevaEdad; 
-        return true;
+        if (nuevaEdad >= 18 && nuevaEdad <= 70) {
+            this.edad = nuevaEdad;
+            return true;
+        } else {
+            System.out.println(
+                    "  [ERROR INVARIANTE] La edad debe estar entre 18 y 70 anios. Valor recibido: " + nuevaEdad);
+            if (this.edad == 0) {
+                this.edad = 18;
+            }
+            return  false;
+        }
+        
     }
 
     /**
      * TODO (ACTIVIDAD ESTUDIANTE):
      * Valida y asigna el sueldo del empleado.
-     * 
+     *  
      * Regla de Negocio / Invariante:
      * - El sueldo no puede ser inferior a SALARIO_BASICO_ECUADOR ($460.00).
      * - Si cumple: asignar this.sueldo = nuevoSueldo y retornar true.
@@ -129,14 +135,14 @@ public class Empleado {
      * @return true si el salario cumple con la invariante; false en caso contrario
      */
     public boolean setSueldo(double nuevoSueldo) {
-        // ====================================================================
-        // ESCRIBE TU CODIGO AQUI:
-        // PISTA: Evalua con un if (nuevoSueldo >= SALARIO_BASICO_ECUADOR)
-        // ====================================================================
-
-        // [PLANTILLA TEMPORAL]: Reemplazar con tu implementacion completa
-        this.sueldo = nuevoSueldo;
-        return true;
+        if (nuevoSueldo >= SALARIO_BASICO_ECUADOR) {
+            this.sueldo = nuevoSueldo;
+            return true;
+        } else {
+            System.out.println("  [ERROR INVARIANTE] El sueldo no puede ser menor a $" +
+                    SALARIO_BASICO_ECUADOR + ". Valor recibido: $" + nuevoSueldo);
+            return false;
+        }
     }
 
     // ------------------------------------------------------------------------
